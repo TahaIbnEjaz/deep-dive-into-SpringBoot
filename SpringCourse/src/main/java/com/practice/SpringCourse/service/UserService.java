@@ -54,10 +54,6 @@ public class UserService {
     public Users remove(int id) {
         Users user = userRepo.findById(id).orElseThrow(IllegalArgumentException::new);
 
-        if (user == null){
-            throw new IllegalArgumentException("User not found");
-        }
-
         userRepo.delete(user);
 
         return user;
